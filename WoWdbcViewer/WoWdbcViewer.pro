@@ -13,8 +13,30 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    dbc/DBCFileLoader.cpp \
+    dbc/Utilities/EventProcessor.cpp \
+    Spells.cpp \
+    Spell.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    dbc/SharedDefines.h \
+    dbc/DBCStore.h \
+    dbc/DBCfmt.h \
+    dbc/DBCFileLoader.h \
+    dbc/DBCEnums.h \
+    dbc/Platform/Define.h \
+    dbc/Platform/CompilerDefs.h \
+    dbc/Utilities/UnorderedMapSet.h \
+    dbc/Utilities/TypeList.h \
+    dbc/Utilities/LinkedList.h \
+    dbc/Utilities/EventProcessor.h \
+    dbc/Utilities/Callback.h \
+    dbc/Utilities/ByteConverter.h \
+    dbc/Utilities/LinkedReference/RefManager.h \
+    dbc/Utilities/LinkedReference/Reference.h \
+    Spells.h \
+    Spell.h \
+    dbc/DBCStructures.h
 
 FORMS    += mainwindow.ui
