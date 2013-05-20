@@ -6,12 +6,12 @@ Spell::Spell(int id, QString name)
     _name = name;
 }
 
-QString Spell::name() const
+const QString &Spell::getName() const
 {
     return _name;
 }
 
-int Spell::id() const
+int Spell::getId() const
 {
     return _id;
 }

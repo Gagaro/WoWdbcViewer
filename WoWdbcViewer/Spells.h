@@ -9,14 +9,15 @@
 class Spells
 {
 public:
-    Spells(QString filename);
+    Spells();
 
-    const Spell *                 getSpell(int id) const;
-    const Spell *                 getSpell(QString name) const;
+    bool                    importSpells(QString filename);
+    const Spell *           getSpell(int id) const;
+    const Spell *           getSpell(QString name) const;
     const QList<Spell> *    getSpells() const;
 
 private:
-    QList <Spell> _spells;
+    QList<Spell> _spells;
 };
 
 #endif // SPELLS_H

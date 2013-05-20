@@ -8,8 +8,8 @@ class Spell
 public:
     Spell(int id, QString name);
 
-    int id() const;
-    QString name() const;
+    int getId() const;
+    const QString &getName() const;
 
 private:
     int     _id;
