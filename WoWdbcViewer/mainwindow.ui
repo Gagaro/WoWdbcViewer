@@ -32,6 +32,9 @@
      <layout class="QHBoxLayout" name="layoutInput">
       <item>
        <widget class="QLineEdit" name="inputId">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="placeholderText">
          <string>Spell Id</string>
         </property>
@@ -39,6 +42,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="buttonId">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Lookup</string>
         </property>
@@ -64,7 +70,7 @@
       <item>
        <widget class="QTabWidget" name="tabSpell">
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tabOverview">
          <attribute name="title">

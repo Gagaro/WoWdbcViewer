@@ -23,8 +23,18 @@ void MainWindow::loadDbc()
 {
     QString directory = QFileDialog::getExistingDirectory(this, "dbc directory");
 
-    _spells.importSpells(directory + "/Spell.dbc");
-    statusBar()->showMessage("dbc loaded.", 10000);
+    if (_spells.importSpells(directory + "/Spell.dbc"))
+    {
+        statusBar()->showMessage("dbc loaded.", 10000);
+        ui->inputId->setEnabled(true);
+        ui->buttonId->setEnabled(true);
+    }
+    else
+    {
+        statusBar()->showMessage("Error while loading dbc.", 10000);
+        ui->inputId->setEnabled(false);
+        ui->buttonId->setEnabled(false);
+    }
 }
 
 void MainWindow::lookupSpell()
@@ -48,5 +58,5 @@ void MainWindow::lookupSpell()
 
 void MainWindow::setSpellInformation(const Spell &spell)
 {
-    ui->spellOverviewId->setText(QString::number(spell.getId()));
+    ui->spellOverviewId->setText("Id: " + QString::number(spell.getId()));
 }
