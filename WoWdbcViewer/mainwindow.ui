@@ -68,7 +68,7 @@
     <item>
      <layout class="QHBoxLayout" name="layoutSpell">
       <item>
-       <widget class="QTabWidget" name="tabSpell">
+       <widget class="QTabWidget" name="tabWidgetSpell">
         <property name="currentIndex">
          <number>0</number>
         </property>
@@ -112,10 +112,49 @@
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_3"/>
         </widget>
-        <widget class="QWidget" name="tab">
+        <widget class="QWidget" name="tabEffect">
          <attribute name="title">
           <string>Effects</string>
          </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QTabWidget" name="tabWidgetEffect">
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="tabEffect1">
+             <attribute name="title">
+              <string>Name Effect 1</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QTableWidget" name="tableEffect1"/>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tabEffect2">
+             <attribute name="title">
+              <string>Name Effect 2</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QTableWidget" name="tableEffect2"/>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tabEffect3">
+             <attribute name="title">
+              <string>Name Effect 3</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QTableWidget" name="tableEffect3"/>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </widget>
       </item>

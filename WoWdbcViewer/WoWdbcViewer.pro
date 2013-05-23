@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     dbc/DBCFileLoader.cpp \
     dbc/Utilities/EventProcessor.cpp \
     Spells.cpp \
-    Spell.cpp
+    Spell.cpp \
+    SpellEffect.cpp
 
 HEADERS  += mainwindow.h \
     dbc/SharedDefines.h \
@@ -37,6 +38,7 @@ HEADERS  += mainwindow.h \
     dbc/Utilities/LinkedReference/Reference.h \
     Spells.h \
     Spell.h \
-    dbc/DBCStructures.h
+    dbc/DBCStructures.h \
+    SpellEffect.h
 
 FORMS    += mainwindow.ui

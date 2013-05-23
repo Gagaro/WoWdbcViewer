@@ -28,7 +28,7 @@ bool Spells::importSpells(QString filename)
     {
         if (indexTable[i] != 0)
         {
-            _spells.append(Spell(indexTable[i]->Id, (char *) indexTable[i]->SpellName));
+            _spells.append(Spell(indexTable[i]));
         }
     }
     return true;

@@ -20,6 +20,9 @@ public:
 
 private:
     void setSpellInformation(const Spell &spell);
+    void setSpellOverview(const Spell &spell);
+    void setSpellAttributes(const Spell &spell);
+    void setSpellEffects(const Spell &spell);
 
     Ui::MainWindow *ui;
     Spells _spells;

@@ -58,5 +58,21 @@ void MainWindow::lookupSpell()
 
 void MainWindow::setSpellInformation(const Spell &spell)
 {
+    setSpellOverview(spell);
+    setSpellAttributes(spell);
+    setSpellEffects(spell);
+}
+
+void MainWindow::setSpellOverview(const Spell &spell)
+{
     ui->spellOverviewId->setText("Id: " + QString::number(spell.getId()));
+    ui->spellOverviewName->setText("Name: " + spell.getName());
+}
+
+void MainWindow::setSpellAttributes(const Spell &spell)
+{
+}
+
+void MainWindow::setSpellEffects(const Spell &spell)
+{
 }
