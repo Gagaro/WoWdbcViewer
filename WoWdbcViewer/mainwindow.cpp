@@ -71,7 +71,13 @@ void MainWindow::setSpellOverview(const Spell &spell)
 
 void MainWindow::setSpellAttributes(const Spell &spell)
 {
+    QList<SpellAttribute>   attributes = spell.getAttributes();
 
+    ui->listAttributesDesc->clear();
+    for (int i = 0 ; i < attributes.size() ; i++)
+    {
+        ui->listAttributesDesc->addItem(attributes.at(i).getName() + ": " + attributes.at(i).getDescription());
+    }
 }
 
 void MainWindow::setSpellEffects(const Spell &spell)
@@ -110,7 +116,7 @@ void MainWindow::setSpellEffects(const Spell &spell)
             list->addItem("Mechanic: " + QString::number(s.getMechanic()));
             list->addItem("Implicit target A: " + QString::number(s.getImplicitTargetA()));
             list->addItem("Implicit target B: " + QString::number(s.getImplicitTargetB()));
-            list->addItem("Radius: " + QString::number(s.getRadius()));
+            list->addItem("Radius index: " + QString::number(s.getRadius()));
             list->addItem("Apply aura name: " + QString::number(s.getApplyAuraName()));
             list->addItem("Amplitude: " + QString::number(s.getAmplitude()));
             list->addItem("Multiple value: " + QString::number(s.getMultipleValue()));

@@ -110,7 +110,11 @@
          <attribute name="title">
           <string>Attributes</string>
          </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout_3"/>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QListWidget" name="listAttributesDesc"/>
+          </item>
+         </layout>
         </widget>
         <widget class="QWidget" name="tabEffect">
          <attribute name="title">
