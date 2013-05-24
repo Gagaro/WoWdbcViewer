@@ -71,8 +71,54 @@ void MainWindow::setSpellOverview(const Spell &spell)
 
 void MainWindow::setSpellAttributes(const Spell &spell)
 {
+
 }
 
 void MainWindow::setSpellEffects(const Spell &spell)
 {
+    QWidget *tabArray[] = {
+        ui->tabEffect1,
+        ui->tabEffect2,
+        ui->tabEffect3
+    };
+    QListWidget *listArray[] = {
+        ui->listEffect1,
+        ui->listEffect2,
+        ui->listEffect3
+    };
+
+    for (int i = 0 ; i < MAX_EFFECT_INDEX ; i++)
+    {
+        const SpellEffect &s        = spell.getSpellEffect(i);
+        QWidget *tab                = tabArray[i];
+        QListWidget *list         = listArray[i];
+
+        if (s.getEffect() == SPELL_EFFECT_NONE)
+        {
+            tab->setEnabled(false);
+        }
+        else
+        {
+            tab->setEnabled(true);
+            list->addItem("Effect id: " + QString::number(s.getEffect()));
+            list->addItem("Die sides: " + QString::number(s.getDieSides()));
+            list->addItem("Base dice: " + QString::number(s.getBaseDice()));
+            list->addItem("Dice per level: " + QString::number(s.getDicePerLevel()));
+            list->addItem("Real points per level: " + QString::number(s.getRealPointsPerLevel()));
+            list->addItem("Base point: " + QString::number(s.getBasePoint()));
+            list->addItem("Mechanic: " + QString::number(s.getMechanic()));
+            list->addItem("Implicit target A: " + QString::number(s.getImplicitTargetA()));
+            list->addItem("Implicit target B: " + QString::number(s.getImplicitTargetB()));
+            list->addItem("Radius: " + QString::number(s.getRadius()));
+            list->addItem("Apply aura name: " + QString::number(s.getApplyAuraName()));
+            list->addItem("Amplitude: " + QString::number(s.getAmplitude()));
+            list->addItem("Multiple value: " + QString::number(s.getMultipleValue()));
+            list->addItem("Chain target: " + QString::number(s.getChainTarget()));
+            list->addItem("Item type: " + QString::number(s.getItemType()));
+            list->addItem("Misc value: " + QString::number(s.getMiscValueA()));
+            list->addItem("Misc value B: " + QString::number(s.getMiscValueB()));
+            list->addItem("Trigger spell: " + QString::number(s.getTriggerSpell()));
+            list->addItem("Points per combo point: " + QString::number(s.getPointsPerComboPoint()));
+        }
+    }
 }

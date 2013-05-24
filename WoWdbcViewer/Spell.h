@@ -12,13 +12,14 @@ public:
     Spell(SpellEntry *spell);
     ~Spell();
 
-    int getId() const;
-    const QString &getName() const;
+    int                 getId() const;
+    const QString &     getName() const;
+    const SpellEffect & getSpellEffect(int i) const;
 
 private:
-    int         _id;
-    QString     _name;
-    SpellEffect _spellEffects[MAX_EFFECT_INDEX];
+    int             _id;
+    QString         _name;
+    SpellEffect     _spellEffects[MAX_EFFECT_INDEX];
 };
 
 #endif // SPELL_H

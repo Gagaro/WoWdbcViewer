@@ -25,3 +25,7 @@ int Spell::getId() const
     return _id;
 }
 
+const SpellEffect & Spell::getSpellEffect(int i) const
+{
+    return _spellEffects[i];
+}
