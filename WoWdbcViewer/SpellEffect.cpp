@@ -186,97 +186,97 @@ const QString         &SpellEffect::getName() const
     return _name;
 }
 
-const unsigned int    SpellEffect::getEffect() const
+unsigned int    SpellEffect::getEffect() const
 {
     return _effect;
 }
 
-const unsigned int    SpellEffect::getDieSides() const
+unsigned int    SpellEffect::getDieSides() const
 {
     return _dieSides;
 }
 
-const unsigned int    SpellEffect::getBaseDice() const
+unsigned int    SpellEffect::getBaseDice() const
 {
     return _baseDice;
 }
 
-const unsigned int    SpellEffect::getDicePerLevel() const
+unsigned int    SpellEffect::getDicePerLevel() const
 {
     return _dicePerLevel;
 }
 
-const unsigned int    SpellEffect::getRealPointsPerLevel() const
+unsigned int    SpellEffect::getRealPointsPerLevel() const
 {
     return _realPointsPerLevel;
 }
 
-const unsigned int    SpellEffect::getBasePoint() const
+unsigned int    SpellEffect::getBasePoint() const
 {
     return _basePoint;
 }
 
-const unsigned int    SpellEffect::getMechanic() const
+unsigned int    SpellEffect::getMechanic() const
 {
     return _mechanic;
 }
 
-const unsigned int    SpellEffect::getImplicitTargetA() const
+unsigned int    SpellEffect::getImplicitTargetA() const
 {
     return _implicitTargetA;
 }
 
-const unsigned int    SpellEffect::getImplicitTargetB() const
+unsigned int    SpellEffect::getImplicitTargetB() const
 {
     return _implicitTargetB;
 }
 
-const unsigned int    SpellEffect::getRadius() const
+unsigned int    SpellEffect::getRadius() const
 {
     return _radius;
 }
 
-const unsigned int    SpellEffect::getApplyAuraName() const
+unsigned int    SpellEffect::getApplyAuraName() const
 {
     return _applyAuraName;
 }
 
-const unsigned int    SpellEffect::getAmplitude() const
+unsigned int    SpellEffect::getAmplitude() const
 {
     return _amplitude;
 }
 
-const unsigned int    SpellEffect::getMultipleValue() const
+unsigned int    SpellEffect::getMultipleValue() const
 {
     return _multipleValue;
 }
 
-const unsigned int    SpellEffect::getChainTarget() const
+unsigned int    SpellEffect::getChainTarget() const
 {
     return _chainTarget;
 }
 
-const unsigned int    SpellEffect::getItemType() const
+unsigned int    SpellEffect::getItemType() const
 {
     return _itemType;
 }
 
-const unsigned int    SpellEffect::getMiscValueA() const
+unsigned int    SpellEffect::getMiscValueA() const
 {
     return _miscValueA;
 }
 
-const unsigned int    SpellEffect::getMiscValueB() const
+unsigned int    SpellEffect::getMiscValueB() const
 {
     return _miscValueB;
 }
 
-const unsigned int    SpellEffect::getTriggerSpell() const
+unsigned int    SpellEffect::getTriggerSpell() const
 {
     return _triggerSpell;
 }
 
-const unsigned int    SpellEffect::getPointsPerComboPoint() const
+unsigned int    SpellEffect::getPointsPerComboPoint() const
 {
     return _pointsPerComboPoint;
 }

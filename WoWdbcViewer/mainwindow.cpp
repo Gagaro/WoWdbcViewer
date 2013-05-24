@@ -100,6 +100,7 @@ void MainWindow::setSpellEffects(const Spell &spell)
         else
         {
             tab->setEnabled(true);
+            list->addItem("Effect: " + s.getName());
             list->addItem("Effect id: " + QString::number(s.getEffect()));
             list->addItem("Die sides: " + QString::number(s.getDieSides()));
             list->addItem("Base dice: " + QString::number(s.getBaseDice()));

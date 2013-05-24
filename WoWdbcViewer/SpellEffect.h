@@ -13,25 +13,25 @@ public:
     SpellEffect() {}
     SpellEffect(SpellEntry * spell, int i);
     const QString         &getName() const;
-    const unsigned int    getEffect() const;
-    const unsigned int    getDieSides() const;
-    const unsigned int    getBaseDice() const;
-    const unsigned int    getDicePerLevel() const;
-    const unsigned int    getRealPointsPerLevel() const;
-    const unsigned int    getBasePoint() const;
-    const unsigned int    getMechanic() const;
-    const unsigned int    getImplicitTargetA() const;
-    const unsigned int    getImplicitTargetB() const;
-    const unsigned int    getRadius() const;
-    const unsigned int    getApplyAuraName() const;
-    const unsigned int    getAmplitude() const;
-    const unsigned int    getMultipleValue() const;
-    const unsigned int    getChainTarget() const;
-    const unsigned int    getItemType() const;
-    const unsigned int    getMiscValueA() const;
-    const unsigned int    getMiscValueB() const;
-    const unsigned int    getTriggerSpell() const;
-    const unsigned int    getPointsPerComboPoint() const;
+    unsigned int    getEffect() const;
+    unsigned int    getDieSides() const;
+    unsigned int    getBaseDice() const;
+    unsigned int    getDicePerLevel() const;
+    unsigned int    getRealPointsPerLevel() const;
+    unsigned int    getBasePoint() const;
+    unsigned int    getMechanic() const;
+    unsigned int    getImplicitTargetA() const;
+    unsigned int    getImplicitTargetB() const;
+    unsigned int    getRadius() const;
+    unsigned int    getApplyAuraName() const;
+    unsigned int    getAmplitude() const;
+    unsigned int    getMultipleValue() const;
+    unsigned int    getChainTarget() const;
+    unsigned int    getItemType() const;
+    unsigned int    getMiscValueA() const;
+    unsigned int    getMiscValueB() const;
+    unsigned int    getTriggerSpell() const;
+    unsigned int    getPointsPerComboPoint() const;
 
 private:
     QString         _name;
