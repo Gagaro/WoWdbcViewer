@@ -257,8 +257,6 @@ const QString         &SpellAttribute::getDescription() const
     return _description;
 }
 
-#include <QDebug>
-
 QList<SpellAttribute>    SpellAttribute::create(SpellEntry *spell)
 {
     QList<SpellAttribute>   list;
@@ -277,8 +275,6 @@ QList<SpellAttribute>    SpellAttribute::create(SpellEntry *spell)
     {
         for (unsigned int i = 0, j = 1; i < 32 ; i++, j <<= 1)
         {
-            if (spell->Id == 53)
-                qDebug() << hex << j;
             if ((attributes[e] & j) == j)
             {
                 list.append(SpellAttribute(attributesDescription[e][i][0], attributesDescription[e][i][1]));
