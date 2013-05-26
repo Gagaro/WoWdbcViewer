@@ -28,7 +28,7 @@ struct AreaTableEntry
     // 30-32    uknown/unused
     // 33       m_minElevation
     // 34       m_ambient_multiplier
-};
+} __attribute__((packed));
 
 struct AreaTriggerEntry
 {
@@ -42,7 +42,7 @@ struct AreaTriggerEntry
     float     box_y;                                        // 7 extent y edge
     float     box_z;                                        // 8 extent z edge
     float     box_orientation;                              // 9 extent rotation by about z axis
-};
+} __attribute__((packed));
 
 struct AuctionHouseEntry
 {
@@ -52,13 +52,13 @@ struct AuctionHouseEntry
     uint32    cutPercent;                                   // 3        m_consignmentRate
     // char*     name[16];                                  // 4-19     m_name_lang
     // 20 string flags
-};
+} __attribute__((packed));
 
 struct BankBagSlotPricesEntry
 {
     uint32  ID;                                             // 0        m_ID
     uint32  price;                                          // 1        m_Cost
-};
+} __attribute__((packed));
 
 struct BattlemasterListEntry
 {
@@ -72,7 +72,7 @@ struct BattlemasterListEntry
     char*       name[16];                                   // 15-30    m_name_lang
     // 31 string flags
     // 32 unused
-};
+} __attribute__((packed));
 
 /*struct Cfg_CategoriesEntry
 {
@@ -90,7 +90,7 @@ struct BattlemasterListEntry
     uint32 Type;                                            //          m_realmType (sent in RealmList packet)
     uint32 IsPvp;                                           //          m_playerKillingAllowed
     uint32 IsRp;                                            //          m_roleplaying
-};*/
+} __attribute__((packed));*/
 
 #define MAX_OUTFIT_ITEMS 12
 // #define MAX_OUTFIT_ITEMS 24                              // 12->24 in 3.0.x
@@ -105,7 +105,7 @@ struct CharStartOutfitEntry
     // uint32 Unknown1;                                     // 38, unique values (index-like with gaps ordered in other way as ids)
     // uint32 Unknown2;                                     // 39
     // uint32 Unknown3;                                     // 40
-};
+} __attribute__((packed));
 
 struct CharTitlesEntry
 {
@@ -116,7 +116,7 @@ struct CharTitlesEntry
     // char*       name2[16];                               // 19-34    m_name1_lang
     // 35 string flags
     uint32  bit_index;                                      // 36       m_mask_ID used in PLAYER_CHOSEN_TITLE and 1<<index in PLAYER__FIELD_KNOWN_TITLES
-};
+} __attribute__((packed));
 
 struct ChatChannelsEntry
 {
@@ -127,7 +127,7 @@ struct ChatChannelsEntry
     // 19 string flags
     // char*       name[16];                                // 20-35    m_shortcut_lang
     // 36 string flags
-};
+} __attribute__((packed));
 
 struct ChrClassesEntry
 {
@@ -144,7 +144,7 @@ struct ChrClassesEntry
     // 55       m_filename
     uint32  spellfamily;                                    // 56       m_spellClassSet
     // uint32 flags2;                                       // 57       m_flags (0x08 HasRelicSlot)
-};
+} __attribute__((packed));
 
 struct ChrRacesEntry
 {
@@ -171,7 +171,7 @@ struct ChrRacesEntry
     // 65-66    m_facialHairCustomization[2]
     // 67       m_hairCustomization
     uint32      expansion;                                  // 68       m_required_expansion
-};
+} __attribute__((packed));
 
 /*struct CinematicCameraEntry
 {
@@ -182,14 +182,14 @@ struct ChrRacesEntry
     float       start_y;                                    // 4        m_originY
     float       start_z;                                    // 5        m_originZ
     float       unk6;                                       // 6        m_originFacing
-};*/
+} __attribute__((packed));*/
 
 struct CinematicSequencesEntry
 {
     uint32      Id;                                         // 0        m_ID
     // uint32      unk1;                                    // 1        m_soundID
     // uint32      cinematicCamera;                         // 2        m_camera[8]
-};
+} __attribute__((packed));
 
 struct CreatureDisplayInfoEntry
 {
@@ -205,7 +205,7 @@ struct CreatureDisplayInfoEntry
     // 11       m_bloodID
     // 12       m_NPCSoundID
     // 13       m_particleColorID
-};
+} __attribute__((packed));
 
 struct CreatureDisplayInfoExtraEntry
 {
@@ -220,7 +220,7 @@ struct CreatureDisplayInfoExtraEntry
     // uint32    Equipment[11];                             // 8-18     m_NPCItemDisplay equipped static items EQUIPMENT_SLOT_HEAD..EQUIPMENT_SLOT_HANDS, client show its by self
     // uint32    CanEquip;                                  // 19       m_flags 0..1 Can equip additional things when used for players
     // char*                                                // 20       m_BakeName CreatureDisplayExtra-*.blp
-};
+} __attribute__((packed));
 
 struct CreatureFamilyEntry
 {
@@ -234,7 +234,7 @@ struct CreatureFamilyEntry
     char*     Name[16];                                     // 8-23
     // 24 string flags, unused
     // 25 icon, unused
-};
+} __attribute__((packed));
 
 #define MAX_CREATURE_SPELL_DATA_SLOT 4
 
@@ -243,7 +243,7 @@ struct CreatureSpellDataEntry
     uint32    ID;                                           // 0        m_ID
     uint32    spellId[MAX_CREATURE_SPELL_DATA_SLOT];        // 1-4      m_spells[4]
     // uint32    availability[MAX_CREATURE_SPELL_DATA_SLOT];// 4-7      m_availability[4]
-};
+} __attribute__((packed));
 
 struct CreatureTypeEntry
 {
@@ -251,19 +251,19 @@ struct CreatureTypeEntry
     // char*   Name[16];                                    // 1-16     m_name_lang
     // 17 string flags
     // uint32    no_expirience;                             // 18       m_flags
-};
+} __attribute__((packed));
 
 struct DurabilityCostsEntry
 {
     uint32    Itemlvl;                                      // 0        m_ID
     uint32    multiplier[29];                               // 1-29     m_weaponSubClassCost m_armorSubClassCost
-};
+} __attribute__((packed));
 
 struct DurabilityQualityEntry
 {
     uint32    Id;                                           // 0        m_ID
     float     quality_mod;                                  // 1        m_data
-};
+} __attribute__((packed));
 
 struct EmotesEntry
 {
@@ -274,7 +274,7 @@ struct EmotesEntry
     uint32  EmoteType;                                      // 4        m_EmoteSpecProc (determine how emote are shown)
     uint32  UnitStandState;                                 // 5        m_EmoteSpecProcParam
     // uint32  SoundId;                                     // 6        m_EventSoundID
-};
+} __attribute__((packed));
 
 struct EmotesTextEntry
 {
@@ -282,7 +282,7 @@ struct EmotesTextEntry
     //          m_name
     uint32  textid;                                         //          m_emoteID
     //          m_emoteText
-};
+} __attribute__((packed));
 
 struct FactionEntry
 {
@@ -311,7 +311,7 @@ struct FactionEntry
 
         return -1;
     }
-};
+} __attribute__((packed));
 
 struct FactionTemplateEntry
 {
@@ -361,7 +361,7 @@ struct FactionTemplateEntry
         return hostileMask == 0 && friendlyMask == 0;
     }
     bool IsContestedGuardFaction() const { return (factionFlags & FACTION_TEMPLATE_FLAG_CONTESTED_GUARD) != 0; }
-};
+} __attribute__((packed));
 
 struct GameObjectDisplayInfoEntry
 {
@@ -374,7 +374,7 @@ struct GameObjectDisplayInfoEntry
     float geoBoxMaxX;                                       // 15 m_geoBoxMaxX
     float geoBoxMaxY;                                       // 16 m_geoBoxMaxY
     float geoBoxMaxZ;                                       // 17 m_geoBoxMaxZ
-};
+} __attribute__((packed));
 
 struct GemPropertiesEntry
 {
@@ -383,7 +383,7 @@ struct GemPropertiesEntry
     //          m_maxcount_inv
     //          m_maxcount_item
     uint32      color;                                      //          m_type
-};
+} __attribute__((packed));
 
 // All Gt* DBC store data for 100 levels, some by 100 per class/race
 #define GT_MAX_LEVEL    100
@@ -391,47 +391,47 @@ struct GemPropertiesEntry
 struct GtCombatRatingsEntry
 {
     float    ratio;
-};
+} __attribute__((packed));
 
 struct GtChanceToMeleeCritBaseEntry
 {
     float    base;
-};
+} __attribute__((packed));
 
 struct GtChanceToMeleeCritEntry
 {
     float    ratio;
-};
+} __attribute__((packed));
 
 struct GtChanceToSpellCritBaseEntry
 {
     float    base;
-};
+} __attribute__((packed));
 
 struct GtChanceToSpellCritEntry
 {
     float    ratio;
-};
+} __attribute__((packed));
 
 struct GtOCTRegenHPEntry
 {
     float    ratio;
-};
+} __attribute__((packed));
 
 // struct GtOCTRegenMPEntry
 //{
 //    float    ratio;
-//};
+//} __attribute__((packed));
 
 struct GtRegenHPPerSptEntry
 {
     float    ratio;
-};
+} __attribute__((packed));
 
 struct GtRegenMPPerSptEntry
 {
     float    ratio;
-};
+} __attribute__((packed));
 
 struct ItemEntry
 {
@@ -439,14 +439,14 @@ struct ItemEntry
     uint32  DisplayId;                                      // 1        m_displayInfoID
     uint32  InventoryType;                                  // 2        m_inventoryType
     uint32  Sheath;                                         // 3        m_sheatheType
-};
+} __attribute__((packed));
 
 struct ItemBagFamilyEntry
 {
     uint32   ID;                                            // 0        m_ID
     // char*     name[16]                                   // 1-16     m_name_lang
     //                                                      // 17       name flags
-};
+} __attribute__((packed));
 
 struct ItemClassEntry
 {
@@ -455,13 +455,13 @@ struct ItemClassEntry
     // uint32   unk2;                                       // 2        only weapon have 1 in field, other 0
     char*    name[16];                                      // 3-19     m_name_lang
     //                                                      // 20       name flags
-};
+} __attribute__((packed));
 
 struct ItemDisplayInfoEntry
 {
     uint32      ID;
     uint32      randomPropertyChance;
-};
+} __attribute__((packed));
 
 // struct ItemCondExtCostsEntry
 //{
@@ -469,7 +469,7 @@ struct ItemDisplayInfoEntry
 //    uint32      condExtendedCost;                         // ItemPrototype::CondExtendedCost
 //    uint32      itemextendedcostentry;                    // ItemPrototype::ExtendedCost
 //    uint32      arenaseason;                              // arena season number(1-4)
-//};
+//} __attribute__((packed));
 
 #define MAX_EXTENDED_COST_ITEMS 5
 
@@ -481,7 +481,7 @@ struct ItemExtendedCostEntry
     uint32      reqitem[MAX_EXTENDED_COST_ITEMS];           // 3-7      m_itemID
     uint32      reqitemcount[MAX_EXTENDED_COST_ITEMS];      // 8-12     m_itemCount
     uint32      reqpersonalarenarating;                     // 13       m_requiredArenaRating
-};
+} __attribute__((packed));
 
 struct ItemRandomPropertiesEntry
 {
@@ -491,7 +491,7 @@ struct ItemRandomPropertiesEntry
     // 5-6 unused, 0 only values, reserved for additional enchantments
     char*     nameSuffix[16];                               // 7-22     m_name_lang
     // 23 string flags
-};
+} __attribute__((packed));
 
 struct ItemRandomSuffixEntry
 {
@@ -501,7 +501,7 @@ struct ItemRandomSuffixEntry
     // 18       m_internalName
     uint32    enchant_id[3];                                // 19-21    m_enchantment
     uint32    prefix[3];                                    // 22-24    m_allocationPct
-};
+} __attribute__((packed));
 
 struct ItemSetEntry
 {
@@ -513,7 +513,7 @@ struct ItemSetEntry
     uint32    items_to_triggerspell[8];                     // 43-50    m_setThreshold
     uint32    required_skill_id;                            // 51       m_requiredSkill
     uint32    required_skill_value;                         // 52       m_requiredSkillRank
-};
+} __attribute__((packed));
 
 struct LiquidTypeEntry
 {
@@ -521,7 +521,7 @@ struct LiquidTypeEntry
     uint32 LiquidId;                                        // 1        1: Coilfang Raid - Water; 23: Water; 29: Ocean; 35: Magma; 41: Slime; 47: Naxxramas - Slime; 65: Hyjal Past - Water.
     uint32 Type;                                            // 2        0: Magma; 2: Slime; 3: Water.
     uint32 SpellId;                                         // 3        Reference to Spell.dbc
-};
+} __attribute__((packed));
 
 #define MAX_LOCK_CASE 8
 
@@ -532,7 +532,7 @@ struct LockEntry
     uint32      Index[MAX_LOCK_CASE];                       // 9-16     m_Index
     uint32      Skill[MAX_LOCK_CASE];                       // 17-24    m_Skill
     // uint32      Action[MAX_LOCK_CASE];                   // 25-32    m_Action
-};
+} __attribute__((packed));
 
 struct MailTemplateEntry
 {
@@ -540,7 +540,7 @@ struct MailTemplateEntry
     // char*       subject[16];                             // 1-16     m_subject_lang
     // 17 string flags
     char*       content[16];                                // 18-33    m_body_lang
-};
+} __attribute__((packed));
 
 struct MapEntry
 {
@@ -600,14 +600,14 @@ struct MapEntry
     {
         return MapID == 0 || MapID == 1 || MapID == 530;
     }
-};
+} __attribute__((packed));
 
 struct QuestSortEntry
 {
     uint32      id;                                         // 0        m_ID
     // char*       name[16];                                // 1-16     m_SortName_lang
     // 17 string flags
-};
+} __attribute__((packed));
 
 struct RandomPropertiesPointsEntry
 {
@@ -616,7 +616,7 @@ struct RandomPropertiesPointsEntry
     uint32    EpicPropertiesPoints[5];                      // 2-6      m_Epic
     uint32    RarePropertiesPoints[5];                      // 7-11     m_Superior
     uint32    UncommonPropertiesPoints[5];                  // 12-16    m_Good
-};
+} __attribute__((packed));
 
 /*struct SkillLineCategoryEntry
 {
@@ -624,7 +624,7 @@ struct RandomPropertiesPointsEntry
     char*     name[16];                                     // 1-17     m_name_lang
                                                             // 18 string flags
     uint32    displayOrder;                                 // 19       m_sortIndex
-};*/
+} __attribute__((packed));*/
 
 struct SkillRaceClassInfoEntry
 {
@@ -636,13 +636,13 @@ struct SkillRaceClassInfoEntry
     uint32    reqLevel;                                     // 5        m_minLevel
     // uint32    skillTierId;                               // 6        m_skillTierID
     // uint32    skillCostID;                               // 7        m_skillCostIndex
-};
+} __attribute__((packed));
 
 /*struct SkillTiersEntry{
     uint32    id;                                           // 0        m_ID
     uint32    skillValue[16];                               // 1-17     m_cost
     uint32    maxSkillValue[16];                            // 18-3     m_valueMax
-};*/
+} __attribute__((packed));*/
 
 struct SkillLineEntry
 {
@@ -654,7 +654,7 @@ struct SkillLineEntry
     // char*     description[16];                           // 20-35    m_description_lang
     // 36 string flags
     uint32    spellIcon;                                    // 37       m_spellIconID
-};
+} __attribute__((packed));
 
 struct SkillLineAbilityEntry
 {
@@ -672,7 +672,7 @@ struct SkillLineAbilityEntry
     uint32    min_value;                                    // 11
     // 12-13, unknown, always 0
     uint32    reqtrainpoints;                               // 14
-};
+} __attribute__((packed));
 
 struct SoundEntriesEntry
 {
@@ -687,7 +687,7 @@ struct SoundEntriesEntry
     // 26       m_minDistance
     // 27       m_distanceCutoff
     // 28       m_EAXDef
-};
+} __attribute__((packed));
 
 struct ClassFamilyMask
 {
@@ -720,7 +720,7 @@ struct ClassFamilyMask
         Flags |= mask.Flags;
         return *this;
     }
-};
+} __attribute__((packed));
 
 #define MAX_SPELL_REAGENTS 8
 #define MAX_SPELL_TOTEMS 2
@@ -862,7 +862,7 @@ struct SpellEntry
     private:
         // prevent creating custom entries (copy data from original in fact)
         SpellEntry(SpellEntry const&);                      // DON'T must have implementation
-};
+} __attribute__((packed));
 
 // A few fields which are required for automated convertion
 // NOTE that these fields are count by _skipping_ the fields that are unused!
@@ -875,14 +875,14 @@ struct SpellCastTimesEntry
     int32     CastTime;                                     // 1        m_base
     // float     CastTimePerLevel;                          // 2        m_perLevel
     // int32     MinCastTime;                               // 3        m_minimum
-};
+} __attribute__((packed));
 
 struct SpellFocusObjectEntry
 {
     uint32    ID;                                           // 0        m_ID
     // char*     Name[16];                                  // 1-15     m_name_lang
     // 16 string flags
-};
+} __attribute__((packed));
 
 struct SpellRadiusEntry
 {
@@ -890,7 +890,7 @@ struct SpellRadiusEntry
     float     Radius;                                       //          m_radius
     //          m_radiusPerLevel
     // float     RadiusMax;                                 //          m_radiusMax
-};
+} __attribute__((packed));
 
 struct SpellRangeEntry
 {
@@ -902,7 +902,7 @@ struct SpellRangeEntry
     // uint32  NameFlags;                                   // 20 string flags
     // char*   ShortName[16];                               // 21-36    m_displayNameShort_lang
     // uint32  NameFlags;                                   // 37 string flags
-};
+} __attribute__((packed));
 
 struct SpellShapeshiftFormEntry
 {
@@ -919,13 +919,13 @@ struct SpellShapeshiftFormEntry
     // uint32 unk3;                                         // 25 unused always 0
     // uint32 unk4;                                         // 26 unused always 0
     uint32 spellId[8];                                      // 27-34    m_presetSpellID[8]
-};
+} __attribute__((packed));
 
 struct SpellDurationEntry
 {
     uint32    ID;                                           //          m_ID
     int32     Duration[3];                                  //          m_duration, m_durationPerLevel, m_maxDuration
-};
+} __attribute__((packed));
 
 struct SpellItemEnchantmentEntry
 {
@@ -940,7 +940,7 @@ struct SpellItemEnchantmentEntry
     uint32      slot;                                       // 31       m_flags
     uint32      GemID;                                      // 32       m_src_itemID
     uint32      EnchantmentCondition;                       // 33       m_condition_id
-};
+} __attribute__((packed));
 
 struct SpellItemEnchantmentConditionEntry
 {
@@ -949,13 +949,13 @@ struct SpellItemEnchantmentConditionEntry
     uint8   Comparator[5];
     uint8   CompareColor[5];
     uint32  Value[5];
-};
+} __attribute__((packed));
 
 struct StableSlotPricesEntry
 {
     uint32 Slot;                                            //          m_ID
     uint32 Price;                                           //          m_cost
-};
+} __attribute__((packed));
 
 struct SummonPropertiesEntry
 {
@@ -966,7 +966,7 @@ struct SummonPropertiesEntry
     uint32  Slot;                                           // 4,       m_slot if title = UNITNAME_SUMMON_TITLE_TOTEM, its actual slot (0-6).
     //    Slot may have other uses, selection of pet type in some cases?
     uint32  Flags;                                          // 5        m_flags (enum SummonPropFlags)
-};
+} __attribute__((packed));
 
 #define MAX_TALENT_RANK 5
 
@@ -984,7 +984,7 @@ struct TalentEntry
     // 17-18 part of prev field
     // uint32  needAddInSpellBook;                          // 19       m_flags also need disable higest ranks on reset talent tree
     uint32    DependsOnSpell;                               // 20       m_requiredSpellID req.spell
-};
+} __attribute__((packed));
 
 struct TalentTabEntry
 {
@@ -996,7 +996,7 @@ struct TalentTabEntry
     uint32  ClassMask;                                      // 20       m_classMask
     uint32  tabpage;                                        // 21       m_orderIndex
     // char* internalname;                                  // 22       m_backgroundFile
-};
+} __attribute__((packed));
 
 struct TaxiNodesEntry
 {
@@ -1008,7 +1008,7 @@ struct TaxiNodesEntry
     char*     name[16];                                     // 5-21     m_Name_lang
     // 22 string flags
     uint32    MountCreatureID[2];                           // 23-24    m_MountCreatureID[2]
-};
+} __attribute__((packed));
 
 struct TaxiPathEntry
 {
@@ -1016,7 +1016,7 @@ struct TaxiPathEntry
     uint32    from;
     uint32    to;
     uint32    price;
-};
+} __attribute__((packed));
 
 struct TaxiPathNodeEntry
 {
@@ -1031,7 +1031,7 @@ struct TaxiPathNodeEntry
     uint32    delay;                                        // 8        m_delay
     uint32    arrivalEventID;                               // 9        m_arrivalEventID
     uint32    departureEventID;                             // 10       m_departureEventID
-};
+} __attribute__((packed));
 
 struct TotemCategoryEntry
 {
@@ -1040,7 +1040,7 @@ struct TotemCategoryEntry
     // 17 string flags
     uint32    categoryType;                                 // 18       m_totemCategoryType (one for specialization)
     uint32    categoryMask;                                 // 19       m_totemCategoryMask (compatibility mask for same type: different for totems, compatible from high to low for rods)
-};
+} __attribute__((packed));
 
 struct WMOAreaTableEntry
 {
@@ -1057,7 +1057,7 @@ struct WMOAreaTableEntry
     uint32 areaId;                                          // 10       m_AreaTableID (AreaTable.dbc)
     // char *Name[16];                                      //          m_AreaName_lang
     // uint32 nameFlags;
-};
+} __attribute__((packed));
 
 struct WorldMapAreaEntry
 {
@@ -1070,7 +1070,7 @@ struct WorldMapAreaEntry
     float   x1;                                             // 6        m_locTop
     float   x2;                                             // 7        m_locBottom
     int32   virtual_map_id;                                 // 8        m_displayMapID -1 (map_id have correct map) other: virtual map where zone show (map_id - where zone in fact internally)
-};
+} __attribute__((packed));
 
 /* not used in 2.4.3 code
 #define MAX_WORLD_MAP_OVERLAY_AREA_IDX 4
@@ -1091,7 +1091,7 @@ struct WorldMapOverlayEntry
                                                             // 14       m_hitRectLeft
                                                             // 15       m_hitRectBottom
                                                             // 16       m_hitRectRight
-};
+} __attribute__((packed));
 */
 
 struct WorldSafeLocsEntry
@@ -1103,7 +1103,7 @@ struct WorldSafeLocsEntry
     float     z;                                            // 4        m_locZ
     // char*   name[16]                                     // 5-20     m_AreaName_lang
     // 21 string flags
-};
+} __attribute__((packed));
 
 // GCC have alternative #pragma pack() syntax and old gcc version not support pack(pop), also any gcc version not support it at some platform
 #if defined( __GNUC__ )
@@ -1125,7 +1125,7 @@ struct TalentSpellPos
 
     uint16 talent_id;
     uint8  rank;
-};
+} __attribute__((packed));
 
 typedef std::map<uint32, TalentSpellPos> TalentSpellPosMap;
 
@@ -1136,7 +1136,7 @@ struct TaxiPathBySourceAndDestination
 
     uint32    ID;
     uint32    price;
-};
+} __attribute__((packed));
 typedef std::map<uint32, TaxiPathBySourceAndDestination> TaxiPathSetForSource;
 typedef std::map<uint32, TaxiPathSetForSource> TaxiPathSetBySource;
 
@@ -1148,7 +1148,7 @@ struct TaxiPathNodePtr
     TaxiPathNodeEntry const* i_ptr;
 
     operator TaxiPathNodeEntry const& () const { return *i_ptr; }
-};
+} __attribute__((packed));
 
 // UNUSED FOR NOW
 //typedef Path<TaxiPathNodePtr, TaxiPathNodeEntry const> TaxiPathNodeList;

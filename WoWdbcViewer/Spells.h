@@ -10,6 +10,7 @@ class Spells
 {
 public:
     Spells();
+    ~Spells();
 
     bool                    importSpells(QString filename);
     const Spell *           getSpell(int id) const;
@@ -17,7 +18,8 @@ public:
     const QList<Spell> *    getSpells() const;
 
 private:
-    QList<Spell> _spells;
+    QList<Spell>            _spells;
+    char *                  _strings;
 };
 
 #endif // SPELLS_H

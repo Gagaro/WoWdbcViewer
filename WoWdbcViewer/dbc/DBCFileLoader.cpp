@@ -272,7 +272,7 @@ char* DBCFileLoader::AutoProduceStrings(const char* format, char* dataTable)
                 if (!*slot || !** slot)
                 {
                     const char* st = getRecord(y).getString(x);
-                    *slot=stringPool + (st - (const char*)stringTable);
+                    *slot = stringPool + (st - (const char*)stringTable);
                 }
                 offset += sizeof(char*);
                 break;

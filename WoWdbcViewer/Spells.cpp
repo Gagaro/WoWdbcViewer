@@ -9,6 +9,12 @@ Spells::Spells()
 {
 }
 
+Spells::~Spells()
+{
+    if (_strings != 0)
+        delete [] _strings;
+}
+
 bool Spells::importSpells(QString filename)
 {
     DBCFileLoader dbc;
@@ -20,7 +26,7 @@ bool Spells::importSpells(QString filename)
         return false;
 
     m_dataTable = (SpellEntry *) dbc.AutoProduceData(SpellEntryfmt, nCount, (char ** &) indexTable);
-    dbc.AutoProduceStrings(SpellEntryfmt, (char *) m_dataTable);
+    _strings = dbc.AutoProduceStrings(SpellEntryfmt, (char *) m_dataTable);
 
     while (!_spells.isEmpty())
         _spells.removeFirst();
@@ -58,7 +64,7 @@ const Spell *         Spells::getSpell(QString name) const
     return (Spell *) 0;
 }
 
-const QList <Spell> * Spells::getSpells() const
+const QList<Spell> * Spells::getSpells() const
 {
     return &_spells;
 }
