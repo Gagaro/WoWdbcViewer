@@ -88,6 +88,8 @@ void MainWindow::setSpellOverview(const Spell &spell)
     ui->spellOverviewSchool->setText("School: " + spell.getSchool());
     ui->spellOverviewRange->setText("Range: from " + QString::number(spell.getMinRange())
                                     + " to " + QString::number(spell.getMaxRange()));
+    ui->spellOverviewDispel->setText("Dispel: " + spell.getDispel());
+    ui->spellOverviewMechanic->setText("Mechanic: " + spell.getMechanic());
 }
 
 void MainWindow::setSpellAttributes(const Spell &spell)

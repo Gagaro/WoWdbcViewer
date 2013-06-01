@@ -1,5 +1,53 @@
 #include "Spell.h"
 
+QString spellMechanics[] = {
+    "None",
+    "Charm",
+    "Disoriented",
+    "Disarm",
+    "Distract",
+    "Fear",
+    "Fumble",
+    "Root",
+    "Pacify",
+    "Silence",
+    "Sleep",
+    "Snare",
+    "Stun",
+    "Freeze",
+    "Knockout",
+    "Bleed",
+    "Bandage",
+    "Polymorph",
+    "Banish",
+    "Shield",
+    "Shackle",
+    "Mount",
+    "Persuade",
+    "Turn",
+    "Horror",
+    "Invulnarability",
+    "Interrupt",
+    "Daze",
+    "Discovery",
+    "Immune Shield",
+    "Sapped"
+};
+
+QString spellDispels[] = {
+    "None",
+    "Magic",
+    "Curse",
+    "Disease",
+    "Poison",
+    "Stealth",
+    "Invisibility",
+    "All",
+    "Spe NPC Only",
+    "Enrage",
+    "ZG Ticket"
+};
+
 QString spellSchoolName[] = {
     "Normal",
     "Holy",
@@ -33,6 +81,10 @@ Spell::Spell(SpellEntry *spell, SpellRangeEntry **rangeIndexTable)
     // Range
     _minRange = rangeIndexTable[spell->rangeIndex]->minRange;
     _maxRange = rangeIndexTable[spell->rangeIndex]->maxRange;
+    // Dispel
+    _dispel = spellDispels[spell->Dispel];
+    // Mechanic
+    _mechanic = spellMechanics[spell->Mechanic];
 }
 
 Spell::~Spell()
@@ -62,6 +114,16 @@ const QList<SpellAttribute>   &Spell::getAttributes() const
 const QString   &Spell::getSchool() const
 {
     return _school;
+}
+
+const QString &Spell::getDispel() const
+{
+    return _dispel;
+}
+
+const QString &Spell::getMechanic() const
+{
+    return _mechanic;
 }
 
 unsigned int Spell::getMinRange() const

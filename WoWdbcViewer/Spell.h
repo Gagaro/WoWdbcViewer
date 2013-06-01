@@ -20,14 +20,14 @@ public:
     const SpellEffect &             getSpellEffect(int i) const;
     const QList<SpellAttribute> &   getAttributes() const;
     const QString &                 getSchool() const;
+    const QString &                 getDispel() const;
+    const QString &                 getMechanic() const;
     unsigned int                    getMinRange() const;
     unsigned int                    getMaxRange() const;
 
 private:
     /** @TODO
     unsigned int            _category;
-    unsigned int            _dispel;
-    unsigned int            _mechanic;
     unsigned int            _stances;
     unsigned int            _stancesNot;
     unsigned int            _targets;
@@ -86,6 +86,8 @@ private:
 
     unsigned int            _id;
     QString                 _name;
+    QString                 _dispel;
+    QString                 _mechanic;
     QString                 _school;
     SpellEffect             _effects[MAX_EFFECT_INDEX];
     QList<SpellAttribute>   _attributes;
