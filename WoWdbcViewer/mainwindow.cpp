@@ -39,7 +39,7 @@ void MainWindow::loadDbc(bool ask)
     else if ((directory = settings.value("viewer/dbc").toString()) == "")
         return ;
 
-    if (_spells.importSpells(directory + "/Spell.dbc"))
+    if (_spells.importSpells(directory))
     {
         if (ask)
             settings.setValue("viewer/dbc", directory);
@@ -86,6 +86,8 @@ void MainWindow::setSpellOverview(const Spell &spell)
     ui->spellOverviewId->setText("Id: " + QString::number(spell.getId()));
     ui->spellOverviewName->setText("Name: " + spell.getName());
     ui->spellOverviewSchool->setText("School: " + spell.getSchool());
+    ui->spellOverviewRange->setText("Range: from " + QString::number(spell.getMinRange())
+                                    + " to " + QString::number(spell.getMaxRange()));
 }
 
 void MainWindow::setSpellAttributes(const Spell &spell)

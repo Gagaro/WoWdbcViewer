@@ -10,7 +10,7 @@ QString spellSchoolName[] = {
     "Arcane"
 };
 
-Spell::Spell(SpellEntry *spell)
+Spell::Spell(SpellEntry *spell, SpellRangeEntry **rangeIndexTable)
 {
     _id = spell->Id;
     _name = QString(spell->SpellName[2]);
@@ -25,11 +25,14 @@ Spell::Spell(SpellEntry *spell)
     // School
     _school = "None";
     for (unsigned int i = 0 ; i < MAX_SPELL_SCHOOL ; i++)
-        if ((spell->SchoolMask & (1 << i)) == (1 << i))
+        if ((spell->SchoolMask & (1 << i)) == (unsigned int) (1 << i))
         {
             _school = spellSchoolName[i];
             break ;
         }
+    // Range
+    _minRange = rangeIndexTable[spell->rangeIndex]->minRange;
+    _maxRange = rangeIndexTable[spell->rangeIndex]->maxRange;
 }
 
 Spell::~Spell()
@@ -41,7 +44,7 @@ const QString &Spell::getName() const
     return _name;
 }
 
-int Spell::getId() const
+unsigned int Spell::getId() const
 {
     return _id;
 }
@@ -59,4 +62,14 @@ const QList<SpellAttribute>   &Spell::getAttributes() const
 const QString   &Spell::getSchool() const
 {
     return _school;
+}
+
+unsigned int Spell::getMinRange() const
+{
+    return _minRange;
+}
+
+unsigned int Spell::getMaxRange() const
+{
+    return _maxRange;
 }

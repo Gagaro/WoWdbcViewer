@@ -18,27 +18,39 @@ Spells::~Spells()
         delete [] _strings;
 }
 
-bool Spells::importSpells(QString filename)
+bool Spells::importSpells(QString directory)
 {
     DBCFileLoader dbc;
     uint32 nCount;
-    SpellEntry ** indexTable;
-    SpellEntry * m_dataTable;
+    uint32 tmp;
+    SpellEntry ** spellIndexTable;
+    SpellEntry * spellDataTable;
+    SpellRangeEntry ** rangeIndexTable;
+    SpellRangeEntry * rangeDataTable;
 
-    MainWindow::getInstance()->statusBar()->showMessage("Loading dbc file.");
-    if (!dbc.Load(filename.toLatin1().data(), SpellEntryfmt))
+    MainWindow::getInstance()->statusBar()->showMessage("Loading dbc files.");
+    if (!dbc.Load(QString(directory + "/Spell.dbc").toLatin1().data(), SpellEntryfmt))
         return false;
-    m_dataTable = (SpellEntry *) dbc.AutoProduceData(SpellEntryfmt, nCount, (char ** &) indexTable);
+    spellDataTable = (SpellEntry *) dbc.AutoProduceData(SpellEntryfmt, nCount, (char ** &) spellIndexTable);
     if (_strings != 0)
         delete [] _strings;
-    _strings = dbc.AutoProduceStrings(SpellEntryfmt, (char *) m_dataTable);
-    loadSpells(indexTable, nCount);
-    delete [] m_dataTable;
-    delete [] indexTable;
+    _strings = dbc.AutoProduceStrings(SpellEntryfmt, (char *) spellDataTable);
+    if (!dbc.Load(QString(directory + "/SpellRange.dbc").toLatin1().data(), SpellRangefmt))
+        return false;
+    rangeDataTable = (SpellRangeEntry *) dbc.AutoProduceData(SpellRangefmt, tmp, (char ** &) rangeIndexTable);
+
+
+
+    loadSpells(nCount, spellIndexTable, rangeIndexTable);
+    delete [] spellDataTable;
+    delete [] spellIndexTable;
+    delete [] rangeDataTable;
+    delete [] rangeIndexTable;
     return true;
 }
 
-void                    Spells::loadSpells(SpellEntry ** indexTable, unsigned int nCount)
+void                    Spells::loadSpells(unsigned int nCount, SpellEntry ** spellIndexTable,
+                                           SpellRangeEntry ** rangeIndexTable)
 {
     MainWindow::getInstance()->statusBar()->showMessage("Loading spells.");
     while (!_spells.isEmpty())
@@ -46,9 +58,9 @@ void                    Spells::loadSpells(SpellEntry ** indexTable, unsigned in
     unsigned int percent = 0;
     for (unsigned int i = 0 ; i < nCount ; i++)
     {
-        if (indexTable[i] != 0)
+        if (spellIndexTable[i] != 0)
         {
-            _spells.append(Spell(indexTable[i]));
+            _spells.append(Spell(spellIndexTable[i], rangeIndexTable));
         }
         if (i * 100 / nCount > percent)
         {
@@ -58,7 +70,7 @@ void                    Spells::loadSpells(SpellEntry ** indexTable, unsigned in
     }
 }
 
-const Spell *         Spells::getSpell(int id) const
+const Spell *         Spells::getSpell(unsigned int id) const
 {
     QList<Spell>::const_iterator i;
 

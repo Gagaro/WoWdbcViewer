@@ -12,14 +12,16 @@
 class Spell
 {
 public:
-    Spell(SpellEntry *spell);
+    Spell(SpellEntry *spell, SpellRangeEntry ** rangeIndexTable);
     ~Spell();
 
-    int                             getId() const;
+    unsigned int                    getId() const;
     const QString &                 getName() const;
     const SpellEffect &             getSpellEffect(int i) const;
     const QList<SpellAttribute> &   getAttributes() const;
     const QString &                 getSchool() const;
+    unsigned int                    getMinRange() const;
+    unsigned int                    getMaxRange() const;
 
 private:
     /** @TODO
@@ -54,7 +56,6 @@ private:
     unsigned int            _manaCostPerLevel;
     unsigned int            _manaPerSecond;
     unsigned int            _manaPerSecondPerLevel;
-    unsigned int            _rangeIndex;
     float                   _speed;
     unsigned int            _stackAmount;
     unsigned int            _totem[MAX_SPELL_TOTEMS];
@@ -88,6 +89,8 @@ private:
     QString                 _school;
     SpellEffect             _effects[MAX_EFFECT_INDEX];
     QList<SpellAttribute>   _attributes;
+    unsigned int            _minRange;
+    unsigned int            _maxRange;
 };
 
 #endif // SPELL_H

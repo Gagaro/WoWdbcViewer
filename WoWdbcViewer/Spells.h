@@ -14,9 +14,10 @@ public:
     Spells();
     ~Spells();
 
-    bool                    importSpells(QString filename);
-    void                    loadSpells(SpellEntry ** indexTable, unsigned int nCount);
-    const Spell *           getSpell(int id) const;
+    bool                    importSpells(QString directory);
+    void                    loadSpells(unsigned int nCount, SpellEntry ** spellIndexTable,
+                                       SpellRangeEntry ** rangeIndexTable);
+    const Spell *           getSpell(unsigned int id) const;
     const Spell *           getSpell(QString name) const;
     const QList<Spell> *    getSpells() const;
 
