@@ -6,6 +6,8 @@
 
 #include "Spell.h"
 
+struct SpellEntry;
+
 class Spells
 {
 public:
@@ -13,6 +15,7 @@ public:
     ~Spells();
 
     bool                    importSpells(QString filename);
+    void                    loadSpells(SpellEntry ** indexTable, unsigned int nCount);
     const Spell *           getSpell(int id) const;
     const Spell *           getSpell(QString name) const;
     const QList<Spell> *    getSpells() const;

@@ -9,6 +9,7 @@
 
 Spells::Spells()
 {
+    _strings = 0;
 }
 
 Spells::~Spells()
@@ -28,8 +29,17 @@ bool Spells::importSpells(QString filename)
     if (!dbc.Load(filename.toLatin1().data(), SpellEntryfmt))
         return false;
     m_dataTable = (SpellEntry *) dbc.AutoProduceData(SpellEntryfmt, nCount, (char ** &) indexTable);
+    if (_strings != 0)
+        delete [] _strings;
     _strings = dbc.AutoProduceStrings(SpellEntryfmt, (char *) m_dataTable);
+    loadSpells(indexTable, nCount);
+    delete [] m_dataTable;
+    delete [] indexTable;
+    return true;
+}
 
+void                    Spells::loadSpells(SpellEntry ** indexTable, unsigned int nCount)
+{
     MainWindow::getInstance()->statusBar()->showMessage("Loading spells.");
     while (!_spells.isEmpty())
         _spells.removeFirst();
@@ -46,7 +56,6 @@ bool Spells::importSpells(QString filename)
             MainWindow::getInstance()->statusBar()->showMessage(QString::number(percent) + QString("%"));
         }
     }
-    return true;
 }
 
 const Spell *         Spells::getSpell(int id) const
