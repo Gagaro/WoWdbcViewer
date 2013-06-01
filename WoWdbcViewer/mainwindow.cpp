@@ -103,11 +103,6 @@ void MainWindow::setSpellAttributes(const Spell &spell)
 
 void MainWindow::setSpellEffects(const Spell &spell)
 {
-    QWidget *tabArray[] = {
-        ui->tabEffect1,
-        ui->tabEffect2,
-        ui->tabEffect3
-    };
     QListWidget *listArray[] = {
         ui->listEffect1,
         ui->listEffect2,
@@ -117,17 +112,17 @@ void MainWindow::setSpellEffects(const Spell &spell)
     for (int i = 0 ; i < MAX_EFFECT_INDEX ; i++)
     {
         const SpellEffect &s        = spell.getSpellEffect(i);
-        QWidget *tab                = tabArray[i];
         QListWidget *list         = listArray[i];
 
         if (s.getEffect() == SPELL_EFFECT_NONE)
         {
-            tab->setEnabled(false);
+            ui->tabWidgetEffects->setTabEnabled(i, false);
+            ui->tabWidgetEffects->setTabText(i, "None");
         }
         else
         {
-            tab->setEnabled(true);
-            list->addItem("Effect: " + s.getName());
+            ui->tabWidgetEffects->setTabEnabled(i, true);
+            ui->tabWidgetEffects->setTabText(i, s.getName());
             list->addItem("Effect id: " + QString::number(s.getEffect()));
             list->addItem("Die sides: " + QString::number(s.getDieSides()));
             list->addItem("Base dice: " + QString::number(s.getBaseDice()));

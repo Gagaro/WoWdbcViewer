@@ -130,13 +130,13 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="tabEffect">
+        <widget class="QWidget" name="tabEffects">
          <attribute name="title">
           <string>Effects</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QTabWidget" name="tabWidgetEffect">
+           <widget class="QTabWidget" name="tabWidgetEffects">
             <property name="currentIndex">
              <number>0</number>
             </property>
