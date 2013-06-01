@@ -4,6 +4,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+MainWindow  *MainWindow::getInstance()
+{
+    static MainWindow *instance = 0;
+
+    if (!instance)
+        instance = new MainWindow();
+    return instance;
+}
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -76,6 +85,7 @@ void MainWindow::setSpellOverview(const Spell &spell)
 {
     ui->spellOverviewId->setText("Id: " + QString::number(spell.getId()));
     ui->spellOverviewName->setText("Name: " + spell.getName());
+    ui->spellOverviewSchool->setText("School: " + spell.getSchool());
 }
 
 void MainWindow::setSpellAttributes(const Spell &spell)

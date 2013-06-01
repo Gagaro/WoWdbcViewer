@@ -1,5 +1,7 @@
 #include <QDebug>
+#include <QStatusBar>
 
+#include "mainwindow.h"
 #include "Spells.h"
 #include "dbc/DBCFileLoader.h"
 #include "dbc/DBCfmt.h"
@@ -22,19 +24,26 @@ bool Spells::importSpells(QString filename)
     SpellEntry ** indexTable;
     SpellEntry * m_dataTable;
 
+    MainWindow::getInstance()->statusBar()->showMessage("Loading dbc file.");
     if (!dbc.Load(filename.toLatin1().data(), SpellEntryfmt))
         return false;
-
     m_dataTable = (SpellEntry *) dbc.AutoProduceData(SpellEntryfmt, nCount, (char ** &) indexTable);
     _strings = dbc.AutoProduceStrings(SpellEntryfmt, (char *) m_dataTable);
 
+    MainWindow::getInstance()->statusBar()->showMessage("Loading spells.");
     while (!_spells.isEmpty())
         _spells.removeFirst();
+    unsigned int percent = 0;
     for (unsigned int i = 0 ; i < nCount ; i++)
     {
         if (indexTable[i] != 0)
         {
             _spells.append(Spell(indexTable[i]));
+        }
+        if (i * 100 / nCount > percent)
+        {
+            percent = i * 100 / nCount;
+            MainWindow::getInstance()->statusBar()->showMessage(QString::number(percent) + QString("%"));
         }
     }
     return true;

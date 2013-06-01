@@ -15,10 +15,12 @@ class MainWindow : public QMainWindow
     Q_OBJECT
     
 public:
-    explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    static MainWindow *getInstance();
 
 private:
+    explicit MainWindow(QWidget *parent = 0);
+
     void setSpellInformation(const Spell &spell);
     void setSpellOverview(const Spell &spell);
     void setSpellAttributes(const Spell &spell);
