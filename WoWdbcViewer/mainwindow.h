@@ -30,7 +30,7 @@ private:
     Spells _spells;
 
 private slots:
-    void loadDbc(bool ask = true);
+    void loadDbc();
     void lookupSpell();
 };
 

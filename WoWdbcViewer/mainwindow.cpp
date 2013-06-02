@@ -20,8 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->actionLoad_dbc, SIGNAL(triggered()), this, SLOT(loadDbc()));
     connect(ui->buttonId, SIGNAL(clicked()), this, SLOT(lookupSpell()));
-
-    loadDbc(false);
 }
 
 MainWindow::~MainWindow()
@@ -29,20 +27,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::loadDbc(bool ask)
+void MainWindow::loadDbc()
 {
     QSettings settings;
     QString directory;
 
-    if (ask)
-        directory = QFileDialog::getExistingDirectory(this, "dbc directory");
-    else if ((directory = settings.value("viewer/dbc").toString()) == "")
-        return ;
+    directory = QFileDialog::getExistingDirectory(this, "dbc directory", settings.value("viewer/dbc").toString());
 
     if (_spells.importSpells(directory))
     {
-        if (ask)
-            settings.setValue("viewer/dbc", directory);
+        settings.setValue("viewer/dbc", directory);
         statusBar()->showMessage("dbc loaded.", 10000);
         ui->inputId->setEnabled(true);
         ui->buttonId->setEnabled(true);
