@@ -17,6 +17,9 @@ public:
 
     unsigned int                    getId() const;
     const QString &                 getName() const;
+    const QString &                 getRank() const;
+    const QString &                 getTooltip() const;
+    const QString &                 getDescription() const;
     const SpellEffect &             getSpellEffect(int i) const;
     const QList<SpellAttribute> &   getAttributes() const;
     const QString &                 getSchool() const;
@@ -76,16 +79,15 @@ private:
     unsigned int            _maxAffectedTargets;
     unsigned int            _dmgClass;
     unsigned int            _preventionType;
-    float                   _dmgMultiplier[MAX_EFFECT_INDEX];
     unsigned int            _totemCategory[MAX_SPELL_TOTEM_CATEGORIES];
     unsigned int            _areaId;
-    char *                  _rank;
-    char *                  _description;
-    char *                  _tooltip;
     */
 
     unsigned int            _id;
     QString                 _name;
+    QString                 _rank;
+    QString                 _description;
+    QString                 _tooltip;
     QString                 _dispel;
     QString                 _mechanic;
     QString                 _school;

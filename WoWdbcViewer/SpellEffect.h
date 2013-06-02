@@ -32,6 +32,7 @@ public:
     unsigned int    getMiscValueB() const;
     unsigned int    getTriggerSpell() const;
     unsigned int    getPointsPerComboPoint() const;
+    float           getDmgMultiplier() const;
 
 private:
     QString         _name;
@@ -54,6 +55,7 @@ private:
     unsigned int    _miscValueB;
     unsigned int    _triggerSpell;
     unsigned int    _pointsPerComboPoint;
+    float           _dmgMultiplier;
 };
 
 #endif // SPELLEFFECT_H

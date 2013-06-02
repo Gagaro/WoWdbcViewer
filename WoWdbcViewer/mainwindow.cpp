@@ -77,13 +77,17 @@ void MainWindow::setSpellInformation(const Spell &spell)
 
 void MainWindow::setSpellOverview(const Spell &spell)
 {
-    ui->spellOverviewId->setText("Id: " + QString::number(spell.getId()));
-    ui->spellOverviewName->setText("Name: " + spell.getName());
-    ui->spellOverviewSchool->setText("School: " + spell.getSchool());
-    ui->spellOverviewRange->setText("Range: from " + QString::number(spell.getMinRange())
-                                    + " to " + QString::number(spell.getMaxRange()));
-    ui->spellOverviewDispel->setText("Dispel: " + spell.getDispel());
-    ui->spellOverviewMechanic->setText("Mechanic: " + spell.getMechanic());
+    ui->listOverview->clear();
+    ui->listOverview->addItem("Id: " + QString::number(spell.getId()));
+    ui->listOverview->addItem("Name: " + spell.getName());
+    ui->listOverview->addItem("Rank: " + spell.getRank());
+    ui->listOverview->addItem("Description: " + spell.getDescription());
+    ui->listOverview->addItem("Tooltip: " + spell.getTooltip());
+    ui->listOverview->addItem("School: " + spell.getSchool());
+    ui->listOverview->addItem("Range: from " + QString::number(spell.getMinRange())
+                               + " to " + QString::number(spell.getMaxRange()));
+    ui->listOverview->addItem("Dispel: " + spell.getDispel());
+    ui->listOverview->addItem("Mechanic: " + spell.getMechanic());
 }
 
 void MainWindow::setSpellAttributes(const Spell &spell)
@@ -110,6 +114,7 @@ void MainWindow::setSpellEffects(const Spell &spell)
         const SpellEffect &s        = spell.getSpellEffect(i);
         QListWidget *list         = listArray[i];
 
+        list->clear();
         if (s.getEffect() == SPELL_EFFECT_NONE)
         {
             ui->tabWidgetEffects->setTabEnabled(i, false);
@@ -138,6 +143,7 @@ void MainWindow::setSpellEffects(const Spell &spell)
             list->addItem("Misc value B: " + QString::number(s.getMiscValueB()));
             list->addItem("Trigger spell: " + QString::number(s.getTriggerSpell()));
             list->addItem("Points per combo point: " + QString::number(s.getPointsPerComboPoint()));
+            list->addItem("Damage multiplier: " + QString::number(s.getDmgMultiplier()));
         }
     }
 }

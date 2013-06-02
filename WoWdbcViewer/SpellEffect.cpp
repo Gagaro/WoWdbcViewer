@@ -179,6 +179,7 @@ SpellEffect::SpellEffect(SpellEntry *spell, int i)
    _miscValueB = spell->EffectMiscValueB[i];
    _triggerSpell = spell->EffectTriggerSpell[i];
    _pointsPerComboPoint = spell->EffectPointsPerComboPoint[i];
+   _dmgMultiplier = spell->DmgMultiplier[i];
 }
 
 const QString         &SpellEffect::getName() const
@@ -279,4 +280,9 @@ unsigned int    SpellEffect::getTriggerSpell() const
 unsigned int    SpellEffect::getPointsPerComboPoint() const
 {
     return _pointsPerComboPoint;
+}
+
+float SpellEffect::getDmgMultiplier() const
+{
+    return _dmgMultiplier;
 }

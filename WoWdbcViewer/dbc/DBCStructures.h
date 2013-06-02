@@ -806,9 +806,9 @@ struct SpellEntry
         // uint32    SpellNameFlag;                         // 143      m_name_flag not used
         char*     Rank[16];                                 // 144-159  m_nameSubtext_lang
         // uint32    RankFlags;                             // 160      m_nameSubtext_flag not used
-        // char*     Description[16];                       // 161-176  m_description_lang not used
+        char*     Description[16];                       // 161-176  m_description_lang not used
         // uint32    DescriptionFlags;                      // 177      m_description_flag not used
-        // char*     ToolTip[16];                           // 178-193  m_auraDescription_lang not used
+        char*     ToolTip[16];                           // 178-193  m_auraDescription_lang not used
         // uint32    ToolTipFlags;                          // 194      m_auraDescription_flag not used
         uint32    ManaCostPercentage;                       // 195      m_manaCostPct
         uint32    StartRecoveryCategory;                    // 196      m_startRecoveryCategory

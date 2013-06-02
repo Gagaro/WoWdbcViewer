@@ -61,7 +61,12 @@ QString spellSchoolName[] = {
 Spell::Spell(SpellEntry *spell, SpellRangeEntry **rangeIndexTable)
 {
     _id = spell->Id;
-    _name = QString(spell->SpellName[2]);
+
+    // Strings
+    _name = spell->SpellName[2];
+    _rank = spell->Rank[2];
+    _description = spell->Description[2];
+    _tooltip = spell->ToolTip[2];
 
     // Effects
     for (int i = 0 ; i < MAX_EFFECT_INDEX ; i++)
@@ -94,6 +99,21 @@ Spell::~Spell()
 const QString &Spell::getName() const
 {
     return _name;
+}
+
+const QString &Spell::getRank() const
+{
+    return _rank;
+}
+
+const QString &Spell::getTooltip() const
+{
+    return _tooltip;
+}
+
+const QString &Spell::getDescription() const
+{
+    return _description;
 }
 
 unsigned int Spell::getId() const
