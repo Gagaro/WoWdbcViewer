@@ -23,7 +23,7 @@ public:
     unsigned int    getImplicitTargetA() const;
     unsigned int    getImplicitTargetB() const;
     unsigned int    getRadius() const;
-    unsigned int    getApplyAuraName() const;
+    const QString   &getApplyAuraName() const;
     unsigned int    getAmplitude() const;
     unsigned int    getMultipleValue() const;
     unsigned int    getChainTarget() const;
@@ -46,7 +46,7 @@ private:
     unsigned int    _implicitTargetA;
     unsigned int    _implicitTargetB;
     unsigned int    _radius;
-    unsigned int    _applyAuraName;
+    QString         _applyAuraName;
     unsigned int    _amplitude;
     unsigned int    _multipleValue;
     unsigned int    _chainTarget;

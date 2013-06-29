@@ -78,59 +78,7 @@
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QLabel" name="spellOverviewId">
-            <property name="text">
-             <string>Id: </string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="spellOverviewName">
-            <property name="text">
-             <string>Name: </string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="spellOverviewSchool">
-            <property name="text">
-             <string>Shool:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="spellOverviewRange">
-            <property name="text">
-             <string>Range:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="spellOverviewDispel">
-            <property name="text">
-             <string>Dispel:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="spellOverviewMechanic">
-            <property name="text">
-             <string>Mechanic:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
+           <widget class="QListWidget" name="listOverview"/>
           </item>
          </layout>
         </widget>
@@ -200,7 +148,7 @@
      <x>0</x>
      <y>0</y>
      <width>640</width>
-     <height>21</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

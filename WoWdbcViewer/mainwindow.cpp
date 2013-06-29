@@ -134,7 +134,7 @@ void MainWindow::setSpellEffects(const Spell &spell)
             list->addItem("Implicit target A: " + QString::number(s.getImplicitTargetA()));
             list->addItem("Implicit target B: " + QString::number(s.getImplicitTargetB()));
             list->addItem("Radius index: " + QString::number(s.getRadius()));
-            list->addItem("Apply aura name: " + QString::number(s.getApplyAuraName()));
+            list->addItem("Apply aura name: " + s.getApplyAuraName());
             list->addItem("Amplitude: " + QString::number(s.getAmplitude()));
             list->addItem("Multiple value: " + QString::number(s.getMultipleValue()));
             list->addItem("Chain target: " + QString::number(s.getChainTarget()));
